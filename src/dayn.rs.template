@@ -1,14 +1,16 @@
-#[aoc_generator(dayn)]
-pub fn input_generator(input: &str) -> Vec<usize> {
+pub type AocType = (String, String);
 
+#[aoc_generator(dayn)]
+pub fn input_generator(input: &str) -> Vec<AocType> {
+    todo!()
 }
 
 #[aoc(dayn, part1)]
-pub fn part1(input: &[usize]) -> usize {
-
+pub fn part1(input: &[AocType]) -> usize {
+    todo!()
 }
 
-// #[aoc(dayn, part2)]
-// pub fn part2(input: &[usize]) -> usize {
-
+// #[aoc(dayn,part2)]
+// pub fn part2(input: &[AocType]) -> usize {
+//     todo!()
 // }
