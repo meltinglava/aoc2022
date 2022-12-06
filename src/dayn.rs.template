@@ -10,7 +10,7 @@ pub fn part1(input: &[AocType]) -> usize {
     todo!()
 }
 
-// #[aoc(dayn,part2)]
+// #[aoc(dayn, part2)]
 // pub fn part2(input: &[AocType]) -> usize {
 //     todo!()
 // }
