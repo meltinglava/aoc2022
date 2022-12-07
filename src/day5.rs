@@ -9,7 +9,11 @@ pub struct Move {
 
 impl Move {
     fn new(ammount: usize, from: usize, to: usize) -> Self {
-        Self {ammount, from: from - 1, to: to - 1}
+        Self {
+            ammount,
+            from: from - 1,
+            to: to - 1,
+        }
     }
 }
 
@@ -26,10 +30,9 @@ impl FromStr for Move {
     }
 }
 
-
 #[derive(Debug, Clone)]
 pub struct State {
-    state: Vec<Vec<char>>
+    state: Vec<Vec<char>>,
 }
 
 impl State {
@@ -61,23 +64,19 @@ impl FromStr for State {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let mut spots = vec![vec![]; 9];
         s.lines()
-         .rev()
-         .skip(1) // numbers
-         .for_each(|line| {
-             line
-                 .chars()
-                 .skip(1)
-                 .step_by(4)
-                 .enumerate()
-                 .filter(|(_, c)| *c != ' ')
-                 .for_each(|(n, c)| spots[n].push(c))
-         });
-        Ok(Self {
-            state: spots
-        })
+            .rev()
+            .skip(1) // numbers
+            .for_each(|line| {
+                line.chars()
+                    .skip(1)
+                    .step_by(4)
+                    .enumerate()
+                    .filter(|(_, c)| *c != ' ')
+                    .for_each(|(n, c)| spots[n].push(c))
+            });
+        Ok(Self { state: spots })
     }
 }
-
 
 pub type AocType = (State, Vec<Move>);
 
@@ -86,10 +85,7 @@ pub fn input_generator(input: &str) -> AocType {
     let (state, moves) = input.split_once("\n\n").unwrap();
     (
         state.parse().unwrap(),
-        moves
-            .lines()
-            .map(|n| n.parse().unwrap())
-            .collect()
+        moves.lines().map(|n| n.parse().unwrap()).collect(),
     )
 }
 
@@ -104,7 +100,7 @@ pub fn part1(input: &AocType) -> String {
     state.word()
 }
 
-#[aoc(day5,part2)]
+#[aoc(day5, part2)]
 pub fn part2(input: &AocType) -> String {
     let (state, moves) = input;
 

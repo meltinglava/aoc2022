@@ -13,8 +13,8 @@ fn find_n(input: &[AocType], n: usize) -> usize {
         .enumerate()
         .find(|(_, c)| c.iter().copied().collect::<HashSet<_>>().len() == n)
         .unwrap()
-        .0 + n
-
+        .0
+        + n
 }
 
 #[aoc(day6, part1)]
