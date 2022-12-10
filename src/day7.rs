@@ -1,7 +1,4 @@
-use std::{
-    collections::{HashMap, VecDeque},
-    slice::SliceIndex,
-};
+use std::collections::{HashMap, VecDeque};
 
 #[derive(Debug)]
 pub struct FileStructure {
